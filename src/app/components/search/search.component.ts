@@ -9,6 +9,8 @@ import { SpotifyService } from '../../services/spotify.service';
 })
 export class SearchComponent {
 
-  constructor( public _spotifyService: SpotifyService ) { }
+  constructor( public _spotifyService: SpotifyService ) {
+      this ._spotifyService .getArtists();
+  }
 
 }
