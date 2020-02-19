@@ -10,7 +10,10 @@ import { SpotifyService } from '../../services/spotify.service';
 export class SearchComponent {
 
   constructor( public _spotifyService: SpotifyService ) {
-      this ._spotifyService .getArtists();
+      this ._spotifyService .getArtists()       // Obtiene el Observable del Service
+          .subscribe( response => {             // Se subscribirse a el para obtener la data
+              console .log( 'Search', response );
+          });
   }
 
 }

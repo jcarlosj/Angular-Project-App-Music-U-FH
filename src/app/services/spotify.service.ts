@@ -16,6 +16,8 @@ const
 })
 export class SpotifyService {
 
+    artists : any[] = [];
+
     constructor( public _httpClient: HttpClient ) {
         console .log( 'SpotifyService disponible!' );
     }
@@ -25,12 +27,7 @@ export class SpotifyService {
         let url = 'https://api.spotify.com/v1/search?query=Metallica&type=artist&limit=20';
 
         /** Hace la Peticion HTTP */
-        this ._httpClient
-            .get( url, httpOptions )            // GET: Al URL con reescritura de cabeceras
-            .subscribe( response => {           // Retorna Observable por lo que hay que subscribirse a el para obtener la data
-                console .log( 'Artistas', response );
-            });
-
+        return this ._httpClient .get( url, httpOptions );            // Retorna Observable de petición GET: Al URL con reescritura de cabeceras
     }
 
 }
