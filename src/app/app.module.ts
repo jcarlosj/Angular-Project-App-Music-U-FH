@@ -12,12 +12,16 @@ import { HomeComponent } from './components/home/home.component';
 import { SearchComponent } from './components/search/search.component';
 import { NavbarComponent } from './components/shared/navbar/navbar.component';
 
+/** Pipes */
+import { WithoutImagePipe } from './pipes/without-image.pipe';
+
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     SearchComponent,
-    NavbarComponent
+    NavbarComponent,
+    WithoutImagePipe
   ],
   imports: [
     BrowserModule,

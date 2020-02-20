@@ -14,12 +14,19 @@
             <h2 class="text-capitalize">{{ searchTerm }}</h2>
             <hr>
 
-            <ul>
-                <!-- Usamos la propiedad del servicio (_spotifyService .artists) para que la data este disponible aún cuando cambiemos de pantalla, los datos persisten (si los obtenemos del componente solo estarán disponibles mientras estemos en él) -->
-                <li *ngFor="let artist of _spotifyService .artists">
-                    {{ artist .name }}
-                </li>
-            </ul>
+            <div class="row">
+                <div
+                    class="col-md-3 text-center"
+                    *ngFor="let artist of _spotifyService .artists"
+                ><!-- Usamos la propiedad del servicio (_spotifyService .artists) para que la data este disponible aún cuando cambiemos de pantalla, los datos persisten (si los obtenemos del componente solo estarán disponibles mientras estemos en él) -->
+                    <img
+                        class="img-thumbnail image-pointer"
+                        [src]="artist .images | withoutImage"
+                        [alt]="artist .name"
+                    /><!--Cuando escribimos [src]="artist .images[ 1 ]?.url el ? indica que se puede o no esperar un dato y libera de los errores producidos por valores indefinidos -->
+                    <p>{{ artist .name }}</p>
+                </div>
+            </div>
 
         </div>
     </div>
