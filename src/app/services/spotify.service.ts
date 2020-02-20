@@ -4,7 +4,7 @@ import { map } from 'rxjs/operators';
 
 /** Opciones para Reescribir la Cabecera */
 const
-    token = 'BQBP6SWw8RLUpGKsMe9vBzA_aMNrTyM1Np9S1dCxJO2vSDd1_MFcKwOw5iI8BhZde7tTxSlgUE5GKlTwl8c',      // Spotify renueva el Token cada hora
+    token = 'BQD-d1e517GswQUu4guwctl9li3TsejXeLfcNLRhYB0BHxzm9bcuxGyOM4g23knHGPx5umMQg200OtmuUxQ',      // Spotify renueva el Token cada hora
     httpOptions = {
         headers: new HttpHeaders({      // Instancia para Reescribir la Cabecera
             'Content-Type':  'application/json',
