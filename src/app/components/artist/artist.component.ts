@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-artist',
@@ -13,8 +14,11 @@ export class ArtistComponent implements OnInit {
     ngOnInit() {
         /** Obtiene parametros enviados a traves de la URL usando el metodo GET */
         this ._activatedRoute .params
-            .subscribe( params => {
-                console .log( 'Params', params );
+            .pipe(
+                map( params => params[ 'id' ]  )       // map: para extraer solo el parametro deseado
+            )
+            .subscribe( id => {
+                console .log( 'Artist_ID', id );
             });
     }
 
