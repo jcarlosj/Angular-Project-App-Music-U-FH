@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { map } from 'rxjs/operators';
+/** Services */
+import { SpotifyService } from '../../services/spotify.service';
 
 @Component({
   selector: 'app-artist',
@@ -9,7 +11,12 @@ import { map } from 'rxjs/operators';
 })
 export class ArtistComponent implements OnInit {
 
-    constructor( private _activatedRoute: ActivatedRoute ) { }
+    artist : any = {};
+
+    constructor(
+        private _activatedRoute: ActivatedRoute,
+        public _spotifyService: SpotifyService
+    ) { }
 
     ngOnInit() {
         /** Obtiene parametros enviados a traves de la URL usando el metodo GET */
@@ -19,6 +26,10 @@ export class ArtistComponent implements OnInit {
             )
             .subscribe( id => {
                 console .log( 'Artist_ID', id );
+                this ._spotifyService .getArtistById( id ) .subscribe( artist => {
+                    this .artist = artist;
+                    console .log( 'Artista', this .artist );
+                });
             });
     }
 
