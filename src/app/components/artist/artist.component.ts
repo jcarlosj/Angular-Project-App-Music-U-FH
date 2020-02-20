@@ -26,10 +26,19 @@ export class ArtistComponent implements OnInit {
             )
             .subscribe( id => {
                 console .log( 'Artist_ID', id );
+                /** Obtiene datos del Artista */
                 this ._spotifyService .getArtistById( id ) .subscribe( artist => {
                     this .artist = artist;
                     console .log( 'Artista', this .artist );
                 });
+                /** Obtiene Top Tracks del Artista  */
+                this ._spotifyService .getArtistsTopTracks( id )
+                    .pipe(
+                        map( params => params[ 'tracks' ]  )       // map: para extraer solo el parametro deseado
+                    )
+                    .subscribe( topTracks => {
+                        console .log( 'Mejores temas', topTracks );
+                    });
             });
     }
 

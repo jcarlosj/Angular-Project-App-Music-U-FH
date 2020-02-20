@@ -4,7 +4,7 @@ import { map } from 'rxjs/operators';
 
 /** Opciones para Reescribir la Cabecera */
 const
-    token = 'BQD-d1e517GswQUu4guwctl9li3TsejXeLfcNLRhYB0BHxzm9bcuxGyOM4g23knHGPx5umMQg200OtmuUxQ',      // Spotify renueva el Token cada hora
+    token = 'BQC1jpS0wm47IV27hOqdIehu3RMHSwXDYUkG4cVx3q0AbF7seStF0L6iiMYmIsZs7gEWm-lX55I0wSiD7GI',      // Spotify renueva el Token cada hora
     httpOptions = {
         headers: new HttpHeaders({      // Instancia para Reescribir la Cabecera
             'Content-Type':  'application/json',
@@ -48,14 +48,14 @@ export class SpotifyService {
         /** Hace la Peticion HTTP */
         return this ._httpClient
             .get( url, httpOptions );    // Retorna Observable de petición GET: Al URL con reescritura de cabeceras
-        /*    .pipe(                      // RXJS: pipe operador que permite combinar múltiples funciones que se pasan comop parametro. Retorna una nueva funcion que ejecuta las funciones compuestas en secuencia
-                // RXJS: map operator funciona exactamente igual para Observables que para arrays.
-                map( ( response : any ) => {        // Logica adicional para recorrer la data específica de estructura del Objeto JSON que deseamos (Opcional)
-                    this .artists = response .artists .items;
-                    return this .artists;
-                })
-            );*/
 
+    }
+
+    getArtistsTopTracks( id: string ) {
+        let url = `${ this .urlSpotify }artists/${ id }/top-tracks?country=us`;
+
+        return this ._httpClient
+            .get( url, httpOptions );   // Retorna Observable de petición GET: Al URL con reescritura de cabeceras
     }
 
 }
