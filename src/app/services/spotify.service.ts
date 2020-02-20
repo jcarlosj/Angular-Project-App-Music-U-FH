@@ -4,7 +4,7 @@ import { map } from 'rxjs/operators';
 
 /** Opciones para Reescribir la Cabecera */
 const
-    token = 'BQDYI0HoBeGnXti8Z3HXyS4ZPGy65MPENzQzRdD2bPU7bn2R_XJkzGvG-e-uW79Dc1zv70-6cexiwZrwaKU',      // Spotify renueva el Token cada hora
+    token = 'BQAcvSSQX-GR5JAbLsje1NLy9I9NhOIT6-D6QkpNCSN7_UuW_RpfZVpklWeRFeNOIybUO2facASgQouOSzM',      // Spotify renueva el Token cada hora
     httpOptions = {
         headers: new HttpHeaders({      // Instancia para Reescribir la Cabecera
             'Content-Type':  'application/json',
@@ -24,8 +24,8 @@ export class SpotifyService {
     }
 
     /** POST: add a new hero to the database */
-    getArtists() {
-        let url = 'https://api.spotify.com/v1/search?query=Metallica&type=artist&limit=20';
+    getArtists( artist: string ) {
+        let url = `https://api.spotify.com/v1/search?query=${ artist }&type=artist&limit=20`;
 
         /** Hace la Peticion HTTP */
         return this ._httpClient
