@@ -1,4 +1,7 @@
-# AppMusic
+# App Music
+Este proyecto consume la API de Spotify, permite realizar la búsqueda de artistas por nombre, al seleccionarlos da acceso a listado de los tracks que son considerados éxitos mostrando el nombre de la canción, el albúm al que pertenece, duración y un breve fragmento de audio de la pista, así como la imagen del mismo.
+
+Los conceptos como Componentes, Directivas, Servicios, Pipes, Routes son implementados en este proyecto en la versión (v8.2.14) de Angular.
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.24.
 
