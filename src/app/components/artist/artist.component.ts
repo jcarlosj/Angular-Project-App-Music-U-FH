@@ -12,6 +12,7 @@ import { SpotifyService } from '../../services/spotify.service';
 export class ArtistComponent implements OnInit {
 
     artist : any = {};
+    topTracks : any = [];
 
     constructor(
         private _activatedRoute: ActivatedRoute,
@@ -37,7 +38,8 @@ export class ArtistComponent implements OnInit {
                         map( params => params[ 'tracks' ]  )       // map: para extraer solo el parametro deseado
                     )
                     .subscribe( topTracks => {
-                        console .log( 'Mejores temas', topTracks );
+                        this .topTracks = topTracks;
+                        console .log( 'Mejores temas', this .topTracks );
                     });
             });
     }

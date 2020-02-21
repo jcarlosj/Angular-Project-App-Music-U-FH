@@ -1,4 +1,20 @@
 /* You can add global styles to this file, and also import other style files */
+
+/** Search Page */
 .image-pointer {
     cursor: pointer;
+}
+
+/** Artist Page */
+.top-tracks {
+    margin: 3rem 0;
+}
+.image-artist {
+
+}
+.image-track {
+    width: 13rem;
+}
+.track-popularity {
+    font-size: 3rem;
 }
